@@ -973,7 +973,9 @@ function generateMultiplePretestTrials(attributes, images) {
 
   attributes.forEach(attr => {
     // Identify the correct image for this attribute
-    const correctImage = images.find(img =>   Array.isArray(img.correct) &&   img.correct.includes(attr) );
+    const correctImage = images.find(
+  img => Array.isArray(img.correct) && img.correct.includes(attr)
+);
     const otherImages = images.filter(img => img !== correctImage);
     
     // Choose 3 random distractors
