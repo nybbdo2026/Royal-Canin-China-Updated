@@ -1078,8 +1078,8 @@ const multi_brand_trials = generateCompleteBrandAttributeTrials(attributes, bran
 //           const last = jsPsych.data.get().last(1).values()[0];
 //           if (last.rt < minRT) {
 //             return `<p style="font-size:2rem; color:red;">
-//                       ⚡ Too fast! Please slow down.<br>
-//                       Press any key to repeat the same trial.
+//                       ⚡ 回答过快！请放慢速度。<br>
+//                       按任意键重复当前测试。
 //                     </p>`;
 //           }
 //           if (last.rt > maxRT) {
@@ -1249,14 +1249,14 @@ function wrapTrialWithRTCheck(trial) {
 
           if (lastReal.rt < minRT) {
             return `<p style="font-size:2rem; color:red;">
-                      ⚡ Too fast! Please slow down.<br>
-                      ${respondentIsMobile ? "" : "Press any key to repeat."}
+                      ⚡ 回答过快！请放慢速度。<br>
+                      ${respondentIsMobile ? "" : "按任意键重试。"}
                     </p>`;
           }
           if (lastReal.rt > maxRT) {
             return `<p style="font-size:2rem; color:red;">
-                      🐢 Too slow! Please respond faster.<br>
-                      ${respondentIsMobile ? "" : "Press any key to repeat."}
+                      🐢 回答过慢！请更快作答。<br>
+                      ${respondentIsMobile ? "" : "按任意键重试。"}
                     </p>`;
           }
           return "";
