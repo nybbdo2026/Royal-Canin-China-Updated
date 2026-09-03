@@ -972,15 +972,23 @@ function generateMultiplePretestTrials(attributes, images) {
   const trials = [];
 
   attributes.forEach(attr => {
-    // Identify the correct image for this attribute
-    const correctImage = images.find(img => img.correct.includes(attr));
-    const otherImages = images.filter(img => img !== correctImage);
-    
-    // Choose 3 random distractors
-    const distractors = jsPsych.randomization.sampleWithoutReplacement(otherImages, 3);
 
-    // Combine & shuffle
-    const allOptions = jsPsych.randomization.shuffle([correctImage, ...distractors]);
+    const correctImage = images.find(img => img.correct.includes(attr));
+
+    if (!correctImage) {
+      console.error("NO MATCH FOR ATTRIBUTE:", attr);
+      return;
+    }
+
+    const otherImages = images.filter(img => img !== correctImage);
+
+    const distractors =
+      jsPsych.randomization.sampleWithoutReplacement(otherImages, 3);
+
+    const allOptions =
+      jsPsych.randomization.shuffle([correctImage, ...distractors]);
+
+    console.log(attr, allOptions);
 
     trials.push({
       attribute: attr,
