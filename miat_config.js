@@ -1,12 +1,12 @@
 const brands = [
-    { name: "Hill's", img: "img/acana.png" },
-    { name: "Royal Canin", img: "img/hills.png" }, 
-    { name: "Purina Pro Plan", img:"img/myfoodie.png" }, 
+    { name: "acana", img: "img/acana.png" },
+    { name: "hills", img: "img/hills.png" }, 
+    { name: "myfoodie", img:"img/myfoodie.png" }, 
     { name: "Orijen", img:"img/orijen.png" },
-    { name: "Drools", img:"img/proplanet.png" },
-    { name: "Farmina Pet Foods", img:"img/purenatural.png" },
-    { name: "Acana", img:"img/royalcanin.png" },
-    { name: "Pedigree", img:"img/wanpy.png" }
+    { name: "proplanet", img:"img/proplanet.png" },
+    { name: "purenatural", img:"img/purenatural.png" },
+    { name: "royalcanin", img:"img/royalcanin.png" },
+    { name: "wanpy", img:"img/wanpy.png" }
   ];
 
 const category = "宠物食品"
