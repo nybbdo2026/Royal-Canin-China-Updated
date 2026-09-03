@@ -69,7 +69,7 @@ const attentionCheck1 = {
       stimulus: () => {
         return `
           <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; height:70vh;">
-            <p style="font-size:3rem; text-align:center; font-weight:bold;">What is 3 × 2?</p>
+            <p style="font-size:3rem; text-align:center; font-weight:bold;">3 × 2 等于多少？</p>
             ${
               respondentIsMobile 
                 ? ''
@@ -135,7 +135,7 @@ const attentionCheck2 = {
       stimulus: () => {
         return `
           <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; height:70vh;">
-            <p style="font-size:3rem; text-align:center; font-weight:bold;">What is 11-3?</p>
+            <p style="font-size:3rem; text-align:center; font-weight:bold;">11 - 3 等于多少？</p>
             ${
               respondentIsMobile 
                 ? ''
@@ -199,7 +199,7 @@ const attentionCheck3 = {
 
   stimulus: () => `
     <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; height:70vh;">
-      <p style="font-size:3rem; text-align:center; font-weight:bold; margin-bottom:4vh;">What is 5 + 7?</p>
+      <p style="font-size:3rem; text-align:center; font-weight:bold; margin-bottom:4vh;">5 + 7 等于多少？</p>
       
       ${
         respondentIsMobile
@@ -296,7 +296,7 @@ const attentionCheck4 = {
   stimulus: () => {
     return `
       <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; height:70vh;">
-        <p style="font-size:3rem; text-align:center; font-weight:bold; margin-bottom:4vh;">What is 4 × 6?</p>
+        <p style="font-size:3rem; text-align:center; font-weight:bold; margin-bottom:4vh;">4 × 6 等于多少？</p>
         
         ${respondentIsMobile ? '' : `
           <div style="
@@ -423,20 +423,20 @@ function generateFlatTrials(trialVars, respondentId, partLabel) {
                 <div style="text-align:center;">
                   <div style="background:rgb(32,150,11); border-radius:12px; padding:15px 25px; width:200px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
                     <div style="font-weight:bold;">[E]</div>
-                    <div>Fits</div>
+                    <div>符合</div>
                   </div>
                 </div>
                 <div style="text-align:center;">
                   <div style="background:rgb(105,135,236); border-radius:12px; padding:15px 25px; width:200px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
                     <div style="font-weight:bold;">[I]</div>
-                    <div>Does not fit</div>
+                    <div>不符合</div>
                   </div>
                 </div>
               </div>`
           }
         </div>
       `,
-      choices: respondentIsMobile ? ['Fits', 'Does not fit'] : ['e', 'i'],
+      choices: respondentIsMobile ? ['符合', '不符合'] : ['e', 'i'],
       button_html: respondentIsMobile
         ? (choice, index) => `
           <button style="
@@ -459,14 +459,14 @@ function generateFlatTrials(trialVars, respondentId, partLabel) {
       on_finish: function(data) {
         let label;
         if (respondentIsMobile) {
-          label = data.response === 0 ? "Fits" : "Does not fit";
+          label = data.response === 0 ? "符合" : "不符合";
         } else {
-          label = data.response === 'e' ? "Fits" : "Does not fit";
+          label = data.response === 'e' ? "符合" : "不符合";
         }
         data.selected_label = label;
 
         if (vars.is_correct !== undefined) {
-          data.accurate = (label === (vars.is_correct ? "Fits" : "Does not fit"));
+          data.accurate = (label === (vars.is_correct ? "符合" : "不符合"));
         }
         if (data.rt < minRT) data.rt_flag = "too_fast";
         if (data.rt > maxRT) data.rt_flag = "too_slow";
@@ -527,7 +527,7 @@ function generateFlatTrials(trialVars, respondentId, partLabel) {
 //           return `
 //             <div style="display:flex; flex-direction:column; align-items:center; padding:4vh 4vw; width:100%;">
 //               <div style="background:#ddd; border-radius:16px; padding:3vh 5vw; max-width:700px; text-align:center; margin-bottom:4vh;">
-//                 <p style="font-size:1.5rem; color:#666;">Which image best represents:</p>
+//                 <p style="font-size:1.5rem; color:#666;">哪张图片最能代表：</p>
 //                 <p style="font-size:2.2rem; font-weight:700; color:#111;">${attr}</p>
 //               </div>
 //               <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:60px; max-width:1100px;">
@@ -539,7 +539,7 @@ function generateFlatTrials(trialVars, respondentId, partLabel) {
 //         // Mobile
 //         return `
 //           <div style="text-align:center; padding:4vh 5vw;">
-//             <p style="font-size:1.2rem; color:#999;">Which brand best represents:</p>
+//             <p style="font-size:1.2rem; color:#999;">哪个品牌最能代表：</p>
 //             <p style="font-size:1.6rem; font-weight:700; color:#111; margin-bottom:4vh;">${attr}</p>
 //           </div>`;
 //       },
@@ -603,7 +603,7 @@ function generateFlatMultiBrandTrials(trialVars, respondentId, partLabel, isPret
       stimulus: () => {
         const attr = vars.attribute;  // ✅ no vars.data
         const brandImgs = imagePaths;
-        const promptText = isPretest ? "Which image best represents:" : "Which brand best represents:";
+        const promptText = isPretest ? "哪张图片最能代表：" : "哪个品牌最能代表：";
         const brandKeys = ['A', 'S', 'K', 'L'];
         const brandKeyColors = [
           "rgb(32, 150, 11)",
@@ -1084,8 +1084,8 @@ const multi_brand_trials = generateCompleteBrandAttributeTrials(attributes, bran
 //           }
 //           if (last.rt > maxRT) {
 //             return `<p style="font-size:2rem; color:red;">
-//                       🐢 Too slow! Please respond faster.<br>
-//                       Press any key to repeat the same trial.
+//                       🐢 回答过慢！请更快作答。<br>
+//                       按任意键重复当前测试。
 //                     </p>`;
 //           }
 //           return ""; // ✅ just an empty string, never "null"
@@ -1131,14 +1131,14 @@ const multi_brand_trials = generateCompleteBrandAttributeTrials(attributes, bran
 
 //               if (lastReal.rt < minRT) {
 //                 return `<p style="font-size:2rem; color:red;">
-//                           ⚡ Too fast! Please slow down.<br>
-//                           ${respondentIsMobile ? "" : "Press any key to repeat."}
+//                           ⚡ 回答过快！请放慢速度。<br>
+//                           ${respondentIsMobile ? "" : 按任意键重试。"}
 //                         </p>`;
 //               }
 //               if (lastReal.rt > maxRT) {
 //                 return `<p style="font-size:2rem; color:red;">
-//                           🐢 Too slow! Please respond faster.<br>
-//                           ${respondentIsMobile ? "" : "Press any key to repeat."}
+//                           🐢 回答过慢！请更快作答。<br>
+//                           ${respondentIsMobile ? "" : "按任意键重试。"}
 //                         </p>`;
 //               }
 //               return ""; // valid RT → instant skip
@@ -1343,17 +1343,17 @@ function wrapTrialWithRTCheck(trial) {
 //           if (correctCount >= minCorrect) {
 //             return `
 //               <div style="text-align:center; font-size:2rem; font-weight:500;">
-//                 <p>✅ You got ${correctCount} correct.</p>
-//                 <p>Great! Moving on.</p>
-//                 ${respondentIsMobile ? '' : '<p>Press any key to continue</p>'}
+//                 <p>✅ 您答对了 ${correctCount} 道题。.</p>
+//                 <p>太好了！继续下一部分。.</p>
+//                 ${respondentIsMobile ? '' : '<p>按任意键继续</p>'}
 //               </div>
 //             `;
 //           } else {
 //             return `
 //               <div style="text-align:center; font-size:2rem; font-weight:500;">
-//                 <p>❌ You only got ${correctCount} correct.</p>
-//                 <p>Please try again.</p>
-//                 ${respondentIsMobile ? '' : '<p>Press any key to continue</p>'}
+//                 <p>❌ 您仅答对了 ${correctCount} 正确.</p>
+//                 <p>请再试一次.</p>
+//                 ${respondentIsMobile ? '' : '<p>按任意键继续</p>'}
 //               </div>
 //             `;
 //           }
@@ -1428,17 +1428,17 @@ function wrapPretestBlock(trials, minCorrect, partLabel) {
           if (correctCount >= minCorrect) {
             return `
               <div style="text-align:center; font-size:2rem; font-weight:500;">
-                <p>✅ You got ${correctCount} correct.</p>
-                <p>Great! Moving on.</p>
-                ${respondentIsMobile ? '' : '<p>Press any key to continue</p>'}
+                <p>✅ 您答对了 ${correctCount} 道题。</p>
+                <p>太好了！继续下一部分。</p>
+                ${respondentIsMobile ? '' : '<p>按任意键继续</p>'}
               </div>
             `;
           } else {
             return `
               <div style="text-align:center; font-size:2rem; font-weight:500;">
-                <p>❌ You only got ${correctCount} correct.</p>
-                <p>Please try again.</p>
-                ${respondentIsMobile ? '' : '<p>Press any key to continue</p>'}
+                <p>❌ 您只答对了 ${correctCount} 道题。</p>
+                <p>请再试一次。</p>
+                ${respondentIsMobile ? '' : '<p>按任意键继续</p>'}
               </div>
             `;
           }
@@ -1544,15 +1544,15 @@ timeline.push({
       padding: 5vw;
       
       <p1 style="font-size: clamp(1.6rem, 4.0vw, 2rem); font-weight: 600; margin-bottom: 2vh;">
-        Welcome to our Implicit Association Survey!
+        欢迎参加我们的内隐联想测试!
       </p>
       <p style="font-size: clamp(1.4rem, 4.5vw, 2rem); margin-bottom: 1vh;">
-        Thank you for your time!
+        感谢您的参与！
       </p>
       ${
         respondentIsMobile
           ? ""
-          : '<p style="font-size: clamp(1rem, 3vw, 1.3rem); margin-bottom: 3vh;">Press space to continue.</p>'
+          : '<p style="font-size: clamp(1rem, 3vw, 1.3rem); margin-bottom: 3vh;">按空格键继续.</p>'
       }
       <p style="color: white; font-size: clamp(0.8rem, 2.5vw, 1rem); margin-top: 5vh;">
         Program built by Nicholas Brereton
@@ -1604,14 +1604,14 @@ timeline.push({
 timeline.push({
   type: respondentIsMobile ? jsPsychHtmlButtonResponse : jsPsychHtmlKeyboardResponse,
   stimulus: `<div>
-    <h2 style = "font-size: 2.5rem"> This test measures response time.  There are no wrong answers. </h2>
+    <h2 style = "font-size: 2.5rem"> 本测试测量您的反应时间。答案无对错之分。 </h2>
   </div>
   ${
     respondentIsMobile 
       ? "" 
       : `
         <h3 style="font-size: clamp(1.2rem, 2.5vw, 2rem); margin-bottom: 2vh;">
-          Press any key to continue
+          按任意键继续
         </h3>
         <img 
           src='img/SingleImplicitMotivationimage.png' 
@@ -1670,12 +1670,12 @@ timeline.push({
 timeline.push({
   type: respondentIsMobile ? jsPsychHtmlButtonResponse : jsPsychHtmlKeyboardResponse,
   stimulus: `<div>
-  <h2 style = "font-size: 2.0rem" > We will begin with a pretest to establish a baseline. </h2>
+  <h2 style = "font-size: 2.0rem" > 我们将先进行一个预测试，以建立基线。 </h2>
   </div>
   ${
     respondentIsMobile
     ? ""
-    : "<p style='font-size: 18px> ;'>Press any key to begin </p>"
+    : "<p style='font-size: 18px> ;'>按任意键开始 </p>"
   }`,
   save_trial_parameters: {
     simulus: false
@@ -1809,7 +1809,7 @@ timeline.push(pretestBlock);
 //               box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 //             ">
 //               <div style="font-weight: bold;">[I]</div>
-//               <div>Does not fit</div>
+//               <div>不符合</div>
 //             </div>
 //           </div>
 //         </div>`
@@ -1819,7 +1819,7 @@ timeline.push(pretestBlock);
 //   },
 
 //   // Choices
-//   choices: respondentIsMobile ? ['Fits', 'Does not fit'] : ['e', 'i'],
+//   choices: respondentIsMobile ? ['符合', '不符合'] : ['e', 'i'],
 
 //   // Side-by-side BIG MOBILE BUTTONS
 //   button_html: respondentIsMobile
@@ -1866,12 +1866,12 @@ timeline.push({
   type: respondentIsMobile ? jsPsychHtmlButtonResponse : jsPsychHtmlKeyboardResponse,
   stimulus: `
     <div style="text-align:center; font-size: 2rem; font-weight: 500;">
-      <p>Thank you.</p>
-      <p>The real test will begin after this.</p>
+      <p>感谢您的参与！</p>
+      <p>正式测试将在此之后开始。</p>
       ${
         respondentIsMobile
           ? ''  // No keyboard text on mobile
-          : '<p>Press any key to begin</p>'
+          : '<p>按任意键开始</p>'
       }
     </div>
   `,
@@ -1949,11 +1949,11 @@ const single_implicit_completition_trial = {
   type: respondentIsMobile ? jsPsychHtmlButtonResponse : jsPsychHtmlKeyboardResponse,
   stimulus: `
     <div style="text-align:center;">
-      <p style="font-size: 3rem;">Part 1 Complete!</p>
+      <p style="font-size: 3rem;">第 1 部分完成！</p>
       ${
         respondentIsMobile
           ? '' // mobile will have a button
-          : '<p>Press any key to continue to part 2.</p>'
+          : '<p>按任意键继续进入第 2 部分。</p>'
       }
     </div>
   `,
@@ -1995,15 +1995,15 @@ const multiImplicitIntroTrial = {
   type: respondentIsMobile ? jsPsychHtmlButtonResponse : jsPsychHtmlKeyboardResponse,
   stimulus: `
     <div style="text-align: center; font-size: 2rem; font-weight: 500;">
-      <p>Next, we will begin with a pretest to set a baseline for our Multiple Implicit portion.</p>
+      <p>接下来，我们将进行一项预测试，为多重内隐测试部分建立基线。</p>
       <p></p>
      
       ${
         respondentIsMobile
           ? '' // Mobile uses button
           :  `
-  <p>Please place both hands on the keyboard with index and middle fingers on the A, S, K, and L keys.</p> 
-  <p style="font-size: 1.5rem; color: #666;">Press any key to continue.</p> 
+  <p>请将双手放在键盘上，并将食指和中指分别放在 A、S、K 和 L 键上。</p> 
+  <p style="font-size: 1.5rem; color: #666;">按任意键继续。</p> 
   <img src="img/MIAT_image.png" 
        style="max-width:40%; width:100%; height:auto; margin-top:1rem;"/>
 `
@@ -2066,12 +2066,12 @@ const multiple_pretest_completion_trial = {
   type: respondentIsMobile ? jsPsychHtmlButtonResponse : jsPsychHtmlKeyboardResponse,
   stimulus: `
     <div style="text-align: center; font-size: 2rem; font-weight: 500;">
-      <p>Multiple Pretest Complete!</p>
-      <p>The main task will begin next.</p>
+      <p>多重内隐预测试完成！</p>
+      <p>接下来将开始正式测试。</p>
       ${
         respondentIsMobile
           ? '' // Mobile uses styled button
-          : '<p style="font-size: 1.5rem; color: #666;">Press any key to continue to the main task.</p>'
+          : '<p style="font-size: 1.5rem; color: #666;">按任意键继续进入正式测试。</p>'
       }
     </div>
   `,
@@ -2123,8 +2123,8 @@ timeline.push({
   type: jsPsychHtmlKeyboardResponse,
   stimulus: `
     <div style="text-align: center; font-size: 2rem;">
-      <p>🎉 Thank you for participating!</p>
-      <p>Please keep this window open until redirect.</p>
+      <p>🎉 感谢您的参与！</p>
+      <p>请保持此窗口打开，直至自动跳转。</p>
     </div>
   `,
   choices: "NO_KEYS",
