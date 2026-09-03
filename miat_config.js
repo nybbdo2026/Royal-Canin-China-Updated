@@ -23,20 +23,20 @@ const pretest_attributes = [
 
 
 const pretest_images = [
-  {name: "Cat", img: "pretest_img/pretest_cat.png", correct: ["Cute", "Soft"]},
-  {name: "Fire", img:"pretest_img/pretest_fire.png", correct:["Dangerous", "Hot"]}, 
-  {name: "Icecube", img: "pretest_img/pretest_icecube.png", correct:["Cold", "Refreshing"]}
+  {name: "Cat", img: "pretest_img/pretest_cat.png", correct: ["可爱", "柔软"]},
+  {name: "Fire", img:"pretest_img/pretest_fire.png", correct:["危险", "热"]}, 
+  {name: "Icecube", img: "pretest_img/pretest_icecube.png", correct:["冷", "清新"]}
 ]
 
 const pretest_attributes_multiple = ["热", "冷", "危险", "清新", "可爱", "柔软", "旅行", "兴奋", "精准", "时间", "深", "湿"]
 
 const pretest_images_multiple = [
-  {name: "Cat", img: "pretest_img/pretest_cat.png", correct: ["Cute", "Soft"]},
-  {name: "Fire", img:"pretest_img/pretest_fire.png", correct:["Dangerous", "Hot"]}, 
-  {name: "Icecube", img: "pretest_img/pretest_icecube.png", correct:["Cold", "Refreshing"]}, 
-  {name: "Driving", img: "pretest_img/pretest_driving.png", correct:["Travel", "Excitement"]}, 
-  {name: "Ocean", img: "pretest_img/pretest_ocean.png", correct:["Deep", "Wet"]},
-  {name: "Clock", img: "pretest_img/pretest_clock.png", correct:["Precise", "Time"]}
+  {name: "Cat", img: "pretest_img/pretest_cat.png", correct: ["可爱", "柔软"]},
+  {name: "Fire", img:"pretest_img/pretest_fire.png", correct: ["危险", "热"]}, 
+  {name: "Icecube", img: "pretest_img/pretest_icecube.png", correct:["冷", "清新"]}, 
+  {name: "Driving", img: "pretest_img/pretest_driving.png", correct:["旅行", "兴奋"]}, 
+  {name: "Ocean", img: "pretest_img/pretest_ocean.png", correct:["深", "湿"]},
+  {name: "Clock", img: "pretest_img/pretest_clock.png", correct:["精准", "时间"]}
 ]
 
 
