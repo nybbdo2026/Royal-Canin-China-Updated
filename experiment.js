@@ -1492,14 +1492,14 @@ const preload = {
    'pretest_img/pretest_icecube.png',
    'pretest_img/pretest_ocean.png',
    'pretest_img/pretest_clock.png',
-   'img/acana.png',
    'img/hills.png',
-   'img/myfoodie.png',
-   'img/orijen.png',
-   'img/proplanet.png',
-   'img/purenatural.png',
    'img/royalcanin.png',
-   'img/wanpy.png'
+   'img/purina.png',
+   'img/orijen.png',
+   'img/drools.png',
+   'img/farmina.png',
+   'img/acana.png',
+   'img/pedigree.png'
   ]
 }
 
@@ -1535,15 +1535,15 @@ timeline.push({
       padding: 5vw;
       
       <p1 style="font-size: clamp(1.6rem, 4.0vw, 2rem); font-weight: 600; margin-bottom: 2vh;">
-        欢迎参加我们的内隐联想调查！
+        Welcome to our Implicit Association Survey!
       </p>
       <p style="font-size: clamp(1.4rem, 4.5vw, 2rem); margin-bottom: 1vh;">
-        感谢您抽出宝贵时间！
+        Thank you for your time!
       </p>
       ${
         respondentIsMobile
           ? ""
-          : '<p style="font-size: clamp(1rem, 3vw, 1.3rem); margin-bottom: 3vh;">按空格键继续。</p>'
+          : '<p style="font-size: clamp(1rem, 3vw, 1.3rem); margin-bottom: 3vh;">Press space to continue.</p>'
       }
       <p style="color: white; font-size: clamp(0.8rem, 2.5vw, 1rem); margin-top: 5vh;">
         Program built by Nicholas Brereton
@@ -1595,14 +1595,14 @@ timeline.push({
 timeline.push({
   type: respondentIsMobile ? jsPsychHtmlButtonResponse : jsPsychHtmlKeyboardResponse,
   stimulus: `<div>
-    <h2 style = "font-size: 2.5rem"> 本测试用于测量您的反应时间。没有正确或错误的答案。 </h2>
+    <h2 style = "font-size: 2.5rem"> This test measures response time.  There are no wrong answers. </h2>
   </div>
   ${
     respondentIsMobile 
       ? "" 
       : `
         <h3 style="font-size: clamp(1.2rem, 2.5vw, 2rem); margin-bottom: 2vh;">
-          按任意键继续。
+          Press any key to continue
         </h3>
         <img 
           src='img/SingleImplicitMotivationimage.png' 
@@ -1661,12 +1661,12 @@ timeline.push({
 timeline.push({
   type: respondentIsMobile ? jsPsychHtmlButtonResponse : jsPsychHtmlKeyboardResponse,
   stimulus: `<div>
-  <h2 style = "font-size: 2.0rem" > 我们将先进行一个预测试，以建立基准。 </h2>
+  <h2 style = "font-size: 2.0rem" > We will begin with a pretest to establish a baseline. </h2>
   </div>
   ${
     respondentIsMobile
     ? ""
-    : "<p style='font-size: 18px> ;'>按任意键开始。 </p>"
+    : "<p style='font-size: 18px> ;'>Press any key to begin </p>"
   }`,
   save_trial_parameters: {
     simulus: false
@@ -1862,7 +1862,7 @@ timeline.push({
       ${
         respondentIsMobile
           ? ''  // No keyboard text on mobile
-          : '<p>按任意键开始。</p>'
+          : '<p>Press any key to begin</p>'
       }
     </div>
   `,
@@ -1944,7 +1944,7 @@ const single_implicit_completition_trial = {
       ${
         respondentIsMobile
           ? '' // mobile will have a button
-          : '<p>按任意键继续进入第 2 部分。.</p>'
+          : '<p>Press any key to continue to part 2.</p>'
       }
     </div>
   `,
@@ -1994,7 +1994,7 @@ const multiImplicitIntroTrial = {
           ? '' // Mobile uses button
           :  `
   <p>Please place both hands on the keyboard with index and middle fingers on the A, S, K, and L keys.</p> 
-  <p style="font-size: 1.5rem; color: #666;">按任意键继续。.</p> 
+  <p style="font-size: 1.5rem; color: #666;">Press any key to continue.</p> 
   <img src="img/MIAT_image.png" 
        style="max-width:40%; width:100%; height:auto; margin-top:1rem;"/>
 `
@@ -2062,7 +2062,7 @@ const multiple_pretest_completion_trial = {
       ${
         respondentIsMobile
           ? '' // Mobile uses styled button
-          : '<p style="font-size: 1.5rem; color: #666;">按任意键继续进入正式任务.</p>'
+          : '<p style="font-size: 1.5rem; color: #666;">Press any key to continue to the main task.</p>'
       }
     </div>
   `,
