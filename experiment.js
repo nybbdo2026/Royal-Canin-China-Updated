@@ -766,13 +766,13 @@ function generateFlatMultiBrandTrials(trialVars, respondentId, partLabel, isPret
 //                       <div style="text-align:center;">
 //                         <div style="background-color:rgb(32,150,11); border-radius:12px; padding:15px 25px; width:250px;">
 //                           <div style="font-weight:bold;">[E]</div>
-//                           <div>Fits</div>
+//                           <div>符合</div>
 //                         </div>
 //                       </div>
 //                       <div style="text-align:center;">
 //                         <div style="background-color:rgb(105,135,236); border-radius:12px; padding:15px 25px; width:250px;">
 //                           <div style="font-weight:bold;">[I]</div>
-//                           <div>Does not fit</div>
+//                           <div>不符合</div>
 //                         </div>
 //                       </div>
 //                     </div>
@@ -781,7 +781,7 @@ function generateFlatMultiBrandTrials(trialVars, respondentId, partLabel, isPret
 //             </div>
 //           `;
 //         },
-//         choices: respondentIsMobile ? ['Fits', 'Does not fit'] : ['e', 'i'],
+//         choices: respondentIsMobile ? ['符合', '不符合'] : ['e', 'i'],
 //         button_html: respondentIsMobile
 //           ? (choice, index) => `
 //               <button style="
@@ -811,8 +811,8 @@ function generateFlatMultiBrandTrials(trialVars, respondentId, partLabel, isPret
 //           } else {
 //             userSaysFits = data.response === 'e';
 //           }
-//           data.user_answer = userSaysFits ? "Fits" : "Does not fit";
-//           data.correct_answer = data.is_correct ? "Fits" : "Does not fit";
+//           data.user_answer = userSaysFits ? "符合" : "不符合";
+//           data.correct_answer = data.is_correct ? "符合" : "不符合";
 //           data.accurate = (userSaysFits === data.is_correct);
 //         },
 //         show_progress_bar: true  // ✅ progress bar updates every trial
@@ -899,18 +899,18 @@ function makeTrial(img, attr, respondentId) {
       <div style="text-align:center;">
         <div style="background:rgb(32,150,11); border-radius:12px; padding:15px 25px; width:200px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
           <div style="font-weight:bold;">[E]</div>
-          <div>Fits</div>
+          <div>F符合</div>
         </div>
       </div>
       <div style="text-align:center;">
         <div style="background:rgb(105,135,236); border-radius:12px; padding:15px 25px; width:200px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
           <div style="font-weight:bold;">[I]</div>
-          <div>Does not fit</div>
+          <div>不符合</div>
         </div>
       </div>
     </div>
   </div>`}
-`  ,  choices: respondentIsMobile ? ['Fits', 'Does not fit'] : ['e', 'i'],
+`  ,  choices: respondentIsMobile ? ['符合', '不符合'] : ['e', 'i'],
 
     button_html: respondentIsMobile ? (choice, index) => `
       <button style="
@@ -940,8 +940,8 @@ function makeTrial(img, attr, respondentId) {
       } else {
         userSaysFits = data.response === 'e';
       }
-      data.user_answer = userSaysFits ? "Fits" : "Does not fit";
-      data.correct_answer = data.is_correct ? "Fits" : "Does not fit";
+      data.user_answer = userSaysFits ? "符合" : "不符合";
+      data.correct_answer = data.is_correct ? "符合" : "不符合";
       data.accurate = (userSaysFits === data.is_correct);
     }
   };
@@ -1797,7 +1797,7 @@ timeline.push(pretestBlock);
 //               box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 //             ">
 //               <div style="font-weight: bold;">[E]</div>
-//               <div>Fits</div>
+//               <div>符合</div>
 //             </div>
 //           </div>
 //           <div style="text-align: center;">
@@ -1856,8 +1856,8 @@ timeline.push(pretestBlock);
 //     } else {
 //       userSaysFits = data.response === 'e';
 //     }
-//     data.user_answer = userSaysFits ? "Fits" : "Does not fit";
-//     data.correct_answer = data.is_correct ? "Fits" : "Does not fit";
+//     data.user_answer = userSaysFits ? "符合" : "不符合";
+//     data.correct_answer = data.is_correct ? "符合" : "不符合";
 //     data.accurate = (userSaysFits === data.is_correct);
 //   }
 // };
