@@ -973,9 +973,7 @@ function generateMultiplePretestTrials(attributes, images) {
 
   attributes.forEach(attr => {
     // Identify the correct image for this attribute
-    const correctImage = images.find(
-  img => Array.isArray(img.correct) && img.correct.includes(attr)
-);
+    const correctImage = images.find(img => img.correct.includes(attr));
     const otherImages = images.filter(img => img !== correctImage);
     
     // Choose 3 random distractors
@@ -1494,14 +1492,14 @@ const preload = {
    'pretest_img/pretest_icecube.png',
    'pretest_img/pretest_ocean.png',
    'pretest_img/pretest_clock.png',
-   'img/acana.png',
    'img/hills.png',
-   'img/myfoodie.png',
-   'img/orijen.png',
-   'img/proplanet.png',
-   'img/purenatural.png',
    'img/royalcanin.png',
-   'img/wanpy.png'
+   'img/purina.png',
+   'img/orijen.png',
+   'img/drools.png',
+   'img/farmina.png',
+   'img/acana.png',
+   'img/pedigree.png'
   ]
 }
 
